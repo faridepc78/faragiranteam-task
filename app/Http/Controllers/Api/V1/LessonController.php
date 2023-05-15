@@ -23,7 +23,8 @@ class LessonController extends Controller
         return $this->success_response(
             LessonResource::make($this->lessonRepository
                 ->loadRelationsByModel($lesson, ['course'])),
-            'the lesson has been successfully created'
+            'the lesson has been successfully created',
+            201
         );
     }
 }
