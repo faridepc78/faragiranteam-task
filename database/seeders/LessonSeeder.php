@@ -12,7 +12,7 @@ class LessonSeeder extends Seeder
     {
         $lessonRepository = resolve(LessonRepositoryInterface::class);
 
-        if (!$lessonRepository->getCount()) {
+        if (! $lessonRepository->getCount()) {
             Lesson::factory(10)->create();
         } else {
             $this->command->warn('Lessons has already been created');

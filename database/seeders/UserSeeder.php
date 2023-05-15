@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
     {
         $userRepository = resolve(UserRepositoryInterface::class);
 
-        if (!$userRepository->getCount()) {
+        if (! $userRepository->getCount()) {
             User::factory(10)->create();
         } else {
             $this->command->warn('Users has already been created');

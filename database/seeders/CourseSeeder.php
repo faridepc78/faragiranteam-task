@@ -12,7 +12,7 @@ class CourseSeeder extends Seeder
     {
         $courseRepository = resolve(CourseRepositoryInterface::class);
 
-        if (!$courseRepository->getCount()) {
+        if (! $courseRepository->getCount()) {
             Course::factory(10)->create();
         } else {
             $this->command->warn('Courses has already been created');

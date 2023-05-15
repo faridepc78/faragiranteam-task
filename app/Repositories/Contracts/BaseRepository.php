@@ -31,7 +31,7 @@ class BaseRepository implements BaseRepositoryInterface
     // Get all instances of model
     public function all(?array $relations = null): Collection|array
     {
-        $query = $this->model::query()->when(!empty($relations), function ($query) use ($relations) {
+        $query = $this->model::query()->when(! empty($relations), function ($query) use ($relations) {
             return $query->with($relations);
         });
 
@@ -85,7 +85,7 @@ class BaseRepository implements BaseRepositoryInterface
     ): Model|Collection|Builder|null {
         $query = $this->model::query()->when($withTrashed, function ($query) {
             return $query->withTrashed();
-        })->when(!empty($relations), function ($query) use ($relations) {
+        })->when(! empty($relations), function ($query) use ($relations) {
             return $query->with($relations);
         });
 
@@ -104,7 +104,7 @@ class BaseRepository implements BaseRepositoryInterface
             ->when($withTrashed, function ($query) {
                 return $query->withTrashed();
             })
-            ->when(!empty($relations), function ($query) use ($relations) {
+            ->when(! empty($relations), function ($query) use ($relations) {
                 return $query->with($relations);
             });
 
